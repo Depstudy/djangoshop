@@ -1,0 +1,9 @@
+<ul class="main-menu clearfix">
+    {% for link in links_menu %}
+    <li class="main-menu-list">
+        <a href="{% url link.href %}" class="{{ link.class }} {% if request.resolver_match.url_name == link.href %}main-menu-link-active{% endif %}">
+            {{ link.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>

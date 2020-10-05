@@ -1,10 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
 
-{% block title %}
-Interior Products
-{% endblock title %}
-
 {% block css %}
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'style-products.css' %}">
@@ -24,21 +20,12 @@ Interior Products
 
 {% block content %}
 		<div class="main">
-			<ul class="main-menu clearfix">
-				<li class="main-menu-list"><a href="#" class="main-menu-link main-menu-link-active">ALL</a></li>
-				<li class="main-menu-list"><a href="#" class="main-menu-link">HOME</a></li>
-				<li class="main-menu-list"><a href="#" class="main-menu-link">OFFICE</a></li>
-				<li class="main-menu-list"><a href="#" class="main-menu-link">FURNITURE</a></li>
-				<li class="main-menu-list"><a href="#" class="main-menu-link">MODERN</a></li>
-				<li class="main-menu-list"><a href="#" class="main-menu-link">CLASSIC</a></li>
-			</ul>
+			{% include 'mainapp/includes/inc_categories_menu.html' %}
 			<div class="products">
-				<a href="#" class="main-product"><img src="{% static 'img/products/product_1.jpg' %}" alt="product_1.jpg"></a>
-				<a href="#" class="main-product main-product-2"><img src="{% static 'img/products/product_2.jpg' %}" alt="product_2.jpg"></a>
-				<a href="#" class="main-product"><img src="{% static 'img/products/product_3.jpg' %}" alt="product_3.jpg"></a>
-				<a href="#" class="main-product"><img src="{% static 'img/products/product_4.jpg' %}" alt="product_4.jpg"></a>
-				<a href="#" class="main-product main-product-5"><img src="{% static 'img/products/product_5.jpg' %}" alt="product_5.jpg"></a>
-				<a href="#" class="main-product"><img src="{% static 'img/products/product_6.jpg' %}" alt="product_6.jpg"></a>
+				{% for same_product in same_products %}
+                <a href="#" class="main-product"><img src="{% static 'img/' %}{{ same_product.image_src }}"
+                    alt="{{ same_product.image_alt }}">
+				{% endfor %}
 			</div>
 			<div class="refresh-button">
 				<a href="#"><img src="{% static 'img/products/products_refresh.png' %}" alt="products-refresh.png"></a>
@@ -61,4 +48,5 @@ Interior Products
 					</div>
 				</div>
 			</div>
+		</div>
 {% endblock content %}

@@ -1,10 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
 
-{% block title %}
-Interior
-{% endblock title %}
-
 {% block css %}
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap">
@@ -36,10 +32,11 @@ Interior
 			<a href="#" class="explore">EXPLORE ALL<img src="{% static 'img/arrow.svg' %}" alt="arrow.svg"></a>
 		</div>
 		<div class="tab-content">
-			<a href="#" class="tab-product tab-product-1"><img src="{% static 'img/tab-products/product_1.jpg' %}" alt="product-1"></a>
-			<a href="#" class="tab-product"><img src="{% static 'img/tab-products/product_2.jpg' %}" alt="product-2"></a>
-			<a href="#" class="tab-product"><img src="{% static 'img/tab-products/product_3.jpg' %}" alt="product-3"></a>
-			<a href="#" class="tab-product tab-product-4"><img src="{% static 'img/tab-products/product_4.jpg' %}" alt="product-4"></a>
+		{% for product in products %}
+			<a href="{{ product.image_href }}" class="{{ product.class_base }} {{ product.class_prod }}"><img src="{% static 'img/' %}{{ product.image_src }}"
+				alt="{{ product.alt }}">
+			</a>
+		{% endfor %}
 		</div>
 		<div class="promo-product">
 			<div class="promo-content-1">

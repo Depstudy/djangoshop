@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <title>
         {% block title %}
+        {{ title|capfirst }}
         {% endblock title %}
     </title>
 
@@ -58,8 +59,8 @@
                 <p class="copyright">Terms & Conditions / Privacy policy & Cookies</p>
             </div>
         </div>
-    </div>
         {% endblock footer %}
+    </div>
 
 </body>
 
