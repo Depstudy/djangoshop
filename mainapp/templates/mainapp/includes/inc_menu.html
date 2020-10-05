@@ -1,0 +1,27 @@
+{% load static %}
+
+<a href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
+<ul class="menu clearfix">
+    <li class="menu-list">
+        <a href="{% url 'main' %}" class="menu-link {% if request.resolver_match.url_name == 'main' %}menu-link-active{% endif %}">
+            HOME
+        </a>
+    </li>
+    <li class="menu-list">
+        <a href="{% url 'products' %}" class="menu-link {% if request.resolver_match.url_name == 'products' %}menu-link-active{% endif %}">
+            PRODUCTS
+        </a>
+    </li>
+    <li class="menu-list"><a href="#" class="menu-link">HISTORY</a></li>
+    <li class="menu-list"> 
+        <a href="{% url 'details' %}" class="menu-link {% if request.resolver_match.url_name == 'details' %}menu-link-active{% endif %}">
+            SHOWROOM
+        </a>
+    </li>
+    <li class="menu-list">
+        <a href="{% url 'contacts' %}" class="menu-link {% if request.resolver_match.url_name == 'contacts' %}menu-link-active{% endif %}">
+            CONTACT
+        </a>
+    </li>
+    <li class="menu-list"><a href="#" class="menu-link"><img src="{% static 'img/search.svg' %}" alt="search"></a></li>
+</ul>
