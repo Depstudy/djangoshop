@@ -1,7 +1,7 @@
 <ul class="main-menu clearfix">
     {% for link in links_menu %}
     <li class="main-menu-list">
-        <a href="#" class="main-menu-link {% if request.resolver_match.url_name == link.href %}main-menu-link-active{% endif %}">
+        <a href="{% url 'products:category' link.pk %}" class="main-menu-link {% if request.resolver_match.url_name == link.href %}main-menu-link-active{% endif %}">
             {{ link.name }}
         </a>
     </li>
