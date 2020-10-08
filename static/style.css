@@ -584,3 +584,92 @@ a.button:hover {
 	margin-right: 172px;
 	text-decoration: none;
 }
+
+.products .block a img {
+	float: left;
+}
+.products .block {
+	float: left;
+	margin-right: 30px;
+	display: block;
+	position: relative;
+}
+.products .block:nth-child(3n) {
+	margin-right: 0px;
+}
+.products a .text {
+	display: none;
+	height: 300px;
+	width: 300px;
+	background-color: #ffffff;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    border: 1px solid #9c9c9c;
+}
+.products a .text h4 {
+	color:  #212121;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 30px;
+	text-align: center;
+}
+.products a .text p {
+	color:  #6c6c6c;
+	font-size: 14px;
+	font-weight: 300;
+	text-align: center;
+}
+.products a .text img {
+	float: none;
+	margin-top: 80px;
+}
+.products a:hover .text{
+	display: block;
+}
+
+
+.tab-content .block a img {
+	float: left;
+}
+.tab-content .block {
+	float: left;
+	margin-right: 30px;
+	display: block;
+	position: relative;
+}
+.tab-content .block:nth-child(3n) {
+	margin-right: 0px;
+}
+.tab-content a .text {
+	display: none;
+	height: 300px;
+	width: 300px;
+	background-color: #ffffff;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    border: 1px solid #9c9c9c;
+}
+.tab-content a .text h4 {
+	color:  #212121;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 30px;
+	text-align: center;
+}
+.tab-content a .text p {
+	color:  #6c6c6c;
+	font-size: 14px;
+	font-weight: 300;
+	text-align: center;
+}
+.tab-content a .text img {
+	float: none;
+	margin-top: 80px;
+}
+.tab-content a:hover .text{
+	display: block;
+}
