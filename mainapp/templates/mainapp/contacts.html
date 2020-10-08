@@ -1,86 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Interior Contacts</title>
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block css %}
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/static/style.css">
-	<link rel="stylesheet" type="text/css" href="/static/style-contacts.css">
-</head>
-<body>
-	<div class="container">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'style-contacts.css' %}">
+{% endblock css %}
+
+{% block menu %}
 		<div class="header-padding-contacts">
 			<div class="header header-contacts clearfix">
-				<a href="index.html"><img src="/static/img/logo.svg" alt="logo"></a>
-				<ul class="menu clearfix">
-					<li class="menu-list"><a href="index.html" class="menu-link">HOME</a></li>
-					<li class="menu-list"><a href="products.html" class="menu-link">PRODUCTS</a></li>
-					<li class="menu-list"><a href="#" class="menu-link">HISTORY</a></li>
-					<li class="menu-list"><a href="details.html" class="menu-link">SHOWROOM</a></li>
-					<li class="menu-list"><a href="#" class="menu-link menu-link-active">CONTACT</a></li>
-					<li class="menu-list"><a href="#" class="menu-link"><img src="img/search.svg" alt="search"></a></li>
-				</ul>
+				{% include 'mainapp/includes/inc_menu.html' %}
 			</div>
 			<div class="header-contacts-text">
+				<p>Today: {{ visit_date|date:"l, j F, Y" }}</p>
 				<h2 class="header-contacts-h2">Contact Us</h2>
 			</div>
 		</div>
+{% endblock menu %}
+
+{% block content %}
 		<div class="main">
-			<div class="contacts-block"><a href="#" class="location-icon"><img src="img/contacts/location_icon.png" alt="location-icon"></a>
-				<h2 class="contacts-h2">California</h2>
+			{% for location in locations %}
+			<div class="contacts-block"><a href="#" class="location-icon"><img src="{% static 'img/contacts/location_icon.png' %}" alt="location-icon"></a>
+				<h2 class="contacts-h2">{{ location.city }}</h2>
 				<p class="name">Phone:</p>
-				<p class="contacts-text">1900 - 1234 -5678</p>
+				<p class="contacts-text">{{ location.phone }}</p>
 				<p class="name">Email:</p>
-				<p class="contacts-text">info@interior.com</p>
+				<p class="contacts-text">{{ location.email }}</p>
 				<p class="name">Address:</p>
-				<p class="contacts-text contacts-text-address">12 W 1st St, 90001 Los Angeles, California</p>
+				<p class="contacts-text contacts-text-address">{{ location.address }}</p>
 			</div>
-			<div class="contacts-block"><a href="#" class="location-icon"><img src="img/contacts/location_icon.png" alt="location-icon"></a>
-				<h2 class="contacts-h2">California</h2>
-				<p class="name">Phone:</p>
-				<p class="contacts-text">1900 - 1234 -5678</p>
-				<p class="name">Email:</p>
-				<p class="contacts-text">info@interior.com</p>
-				<p class="name">Address:</p>
-				<p class="contacts-text contacts-text-address">12 W 1st St, 90001 Los Angeles, California</p>
-			</div>
-			<div class="contacts-block"><a href="#" class="location-icon"><img src="img/contacts/location_icon.png" alt="location-icon"></a>
-				<h2 class="contacts-h2">California</h2>
-				<p class="name">Phone:</p>
-				<p class="contacts-text">1900 - 1234 -5678</p>
-				<p class="name">Email:</p>
-				<p class="contacts-text">info@interior.com</p>
-				<p class="name">Address:</p>
-				<p class="contacts-text contacts-text-address">12 W 1st St, 90001 Los Angeles, California</p>
-			</div>
+			{% endfor %}
 		</div>
-		<div class="footer">
-			<div class="footer-content-1">
-				<h2 class="footer-tag">Contact Us</h2>
-				<p class="links">132A Bridge Road Richmond VIC Australia.</p>
-				<p class="links">Talk to us on 1300 132 info@interior.com</p>
-			</div>
-			<div class="footer-content-2">
-				<h2 class="footer-tag">Useful Information</h2>
-				<div class="footer-content-2-1">
-					<p class="links-2">Sales terms Customer care Delivery</p>
-				</div>
-				<div class="footer-content-2-2">
-					<p class="links-2">Architect accounts Careers <br>Exchanges & returns</p>
-				</div>
-			</div>
-			<div class="footer-content-3">
-				<h2 class="footer-tag">Let’s Stay in Touch!</h2>
-				<p class="links-3">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
-				<input type="email" placeholder="Your email address" class="input-email">
-				<input type="image" src="img/send_img.png" alt="send_img.png" class="email-button">
-			</div>
-			<div class="footer-info">
-				<p class="copyright">© Copyright - INTERIOR 2016. All Rights Reserved.</p>
-				<a href="#" class="social-links"><img src="img/social-links.png" alt="social-links.png"></a>
-				<p class="copyright">Terms & Conditions / Privacy policy & Cookies</p>
-			</div>
-		</div>		
-	</div>
-</body>
-</html>
+{% endblock content %}

@@ -3,10 +3,15 @@ from django.urls import path
 
 import mainapp.views as mainapp
 
-urlpatterns =[
+urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", mainapp.main),
-    path("products/", mainapp.products),
-    path("contacts/", mainapp.contacts),
-    path("details/", mainapp.details),
+    path("", mainapp.main, name="main"),
+    path("products/", mainapp.products, name="products"),
+    path("products/all", mainapp.products, name="products_all"),
+    path("products/home", mainapp.products, name="products_home"),
+    path("products/office", mainapp.products, name="products_office"),
+    path("products/modern", mainapp.products, name="products_modern"),
+    path("products/classic", mainapp.products, name="products_classic"),
+    path("contacts/", mainapp.contacts, name="contacts"),
+    path("details/", mainapp.details, name="details"),
 ]

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}
+        {{ title|capfirst }}
+        {% endblock title %}
+    </title>
+
+    {% block css %}
+    {% endblock css %}
+
+    {% block js %}
+    {% endblock js %}
+
+</head>
+
+<body>
+    <div class="container">
+
+        {% block menu %}
+        {% endblock menu %}
+
+        <div class="content">
+        {% block content %}
+        {% endblock content %}
+        </div>
+
+
+        {% block footer %}
+        <div class="footer">
+            <div class="footer-content-1">
+                <h2 class="footer-tag">Contact Us</h2>
+                <p class="links">132A Bridge Road Richmond VIC Australia.</p>
+                <p class="links">Talk to us on 1300 132 info@interior.com</p>
+            </div>
+            <div class="footer-content-2">
+                <h2 class="footer-tag">Useful Information</h2>
+                <div class="footer-content-2-1">
+                    <p class="links-2">Sales terms Customer care Delivery</p>
+                </div>
+                <div class="footer-content-2-2">
+                    <p class="links-2">Architect accounts Careers <br>Exchanges & returns</p>
+                </div>
+            </div>
+            <div class="footer-content-3">
+                <h2 class="footer-tag">Let’s Stay in Touch!</h2>
+                <p class="links-3">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
+                <input type="email" placeholder="Your email address" class="input-email">
+                <input type="image" src="{% static 'img/send_img.png' %}" alt="send_img.png" class="email-button">
+            </div>
+            <div class="footer-info">
+                <p class="copyright">© Copyright - INTERIOR 2016. All Rights Reserved.</p>
+                <a href="#" class="social-links"><img src="{% static 'img/social-links.png' %}" alt="social-links.png"></a>
+                <p class="copyright">Terms & Conditions / Privacy policy & Cookies</p>
+            </div>
+        </div>
+        {% endblock footer %}
+    </div>
+
+</body>
+
+</html>
