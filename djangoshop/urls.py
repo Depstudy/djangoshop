@@ -13,6 +13,7 @@ urlpatterns = [
     path("products/", include("mainapp.urls", namespace="products")),
     path("contacts/", mainapp.contacts, name="contacts"),
     path("details/", mainapp.details, name="details"),
+    path("auth/", include("authnapp.urls", namespace="auth")),
 ]
 
 
