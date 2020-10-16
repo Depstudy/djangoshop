@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "/home/skynet/Documents/geekbrains/python/django/projects/venv/bin/python"
+    "python.pythonPath": "/home/skynet/Documents/geekbrains/python/django/projects/venv/bin/python",
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "-l 120"
+    ]
 }

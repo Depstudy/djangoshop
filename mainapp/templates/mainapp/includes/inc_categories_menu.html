@@ -1,7 +1,13 @@
 <ul class="main-menu clearfix">
+    <li class="main-menu-list">
+        <a href="{% url 'products:category' pk=0 %}"
+            class="main-menu-link {% if request.resolver_match.kwargs.pk == 0 %}active{% endif %}">
+            все
+        </a>
+    </li>
     {% for link in links_menu %}
     <li class="main-menu-list">
-        <a href="{% url 'products:category' link.pk %}" class="main-menu-link {% if request.resolver_match.url_name == link.href %}main-menu-link-active{% endif %}">
+        <a href="{% url 'products:category' link.pk %}" class="main-menu-link {% if request.resolver_match.kwargs.pk == link.pk %}main-menu-link-active{% endif %}">
             {{ link.name }}
         </a>
     </li>
