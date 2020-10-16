@@ -37,5 +37,12 @@
         <a href="{% url 'auth:login' %}" class="menu-link">LOGIN</a>
         {% endif %}
     </li>
+    <li class="menu-list menu-basket">
+        <a href="{% url 'basket:view' %}" class="basket">
+                <span>
+                    {% if basket %} {{ basket|length }} {% endif %}
+                </span>
+        </a>
+    </li>
     <li class="menu-list"><a href="#" class="menu-link"><img src="{% static 'img/search.svg' %}" alt="search"></a></li>
 </ul>
