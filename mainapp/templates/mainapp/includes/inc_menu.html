@@ -1,6 +1,6 @@
 {% load static %}
 
-<a href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
+<a href="{% url 'main' %}"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
 <ul class="menu clearfix">
     <li class="menu-list">
         <a href="{% url 'main' %}" class="menu-link {% if request.resolver_match.url_name == 'main' %}menu-link-active{% endif %}">
@@ -8,7 +8,7 @@
         </a>
     </li>
     <li class="menu-list">
-        <a href="{% url 'products:index' %}" class="menu-link {% if request.resolver_match.url_name == 'index' %}menu-link-active{% endif %}">
+        <a href="{% url 'products:index' %}" class="menu-link {% if request.resolver_match.namespace == 'products' %}menu-link-active{% endif %}">
             PRODUCTS
         </a>
     </li>
@@ -36,6 +36,13 @@
         {% else %}
         <a href="{% url 'auth:login' %}" class="menu-link">LOGIN</a>
         {% endif %}
+    </li>
+    <li class="menu-list menu-basket">
+        <a href="{% url 'basket:view' %}" class="basket">
+                <span>
+                    {% if basket %} {{ basket|length }} {% endif %}
+                </span>
+        </a>
     </li>
     <li class="menu-list"><a href="#" class="menu-link"><img src="{% static 'img/search.svg' %}" alt="search"></a></li>
 </ul>
